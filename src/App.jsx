@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Tabs from './Tabs';
+
 const { fin } = window;
 
 class App extends React.Component {
@@ -30,9 +32,19 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React in OpenFin</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Tabs
+          items={[
+            {
+              value: 'Tab 1',
+            },
+            {
+              value: 'Tab 2',
+            },
+            {
+              value: 'Tab 3',
+            },
+          ]}
+        />
       </div>
     );
   }
