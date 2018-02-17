@@ -1,3 +1,3 @@
-import Tabs from './Tabs.jsx';
+import Tabs from './Tabs';
 
 export default Tabs;

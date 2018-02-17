@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
 
-import Tabs from './Tabs';
+import { Routes } from './routes';
+
+import './App.css';
 
 const { fin } = window;
 
@@ -25,26 +26,24 @@ class App extends React.Component {
     });
   }
 
+  navigate = path => () => {
+    this.props.history.push(path);
+  };
+
   render() {
+    const { navigate } = this;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React in OpenFin</h1>
         </header>
-        <Tabs
-          items={[
-            {
-              value: 'Tab 1',
-            },
-            {
-              value: 'Tab 2',
-            },
-            {
-              value: 'Tab 3',
-            },
-          ]}
-        />
+        <div>
+          <button onClick={navigate('/')}>Home</button>
+          <button onClick={navigate('/tabs')}>Tabs</button>
+          <button onClick={navigate('/atlassian')}>Atlassian</button>
+        </div>
+        <Routes />
       </div>
     );
   }
