@@ -1,0 +1,20 @@
+{
+    "startup_app": {
+        "name": "Openfin Tearout POC",
+        "url": "http://localhost:3000/index.html",
+        "uuid": "OpenFinTearoutPOC",
+        "applicationIcon": "http://localhost:3000/favicon.ico",
+        "autoShow": true,
+        "saveWindowState": true
+    },
+    "runtime": {
+        "arguments": "--remote-debugging-port=9090",
+        "version": "community"
+    },
+    "shortcut": {
+        "company": "TruMid",
+        "description": "OpenFin Tearout POC",
+        "icon": "http://localhost:3000/favicon.ico",
+        "name": "Openfin Tearout POC"
+    }
+}
