@@ -1,15 +1,53 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
 class Tab extends React.Component {
+  onClick = () => console.log('clicked');
+
+  handleOnClick = provided => {
+    if (!provided.dragHandleProps) {
+      return this.onClick;
+    }
+
+    return event => {
+      provided.dragHandleProps.onClick(event);
+      this.onClick(event);
+    };
+  };
+
   render() {
-    const { value, index } = this.props;
+    const { value, index, active } = this.props;
+    const className = active ? 'active' : '';
+
     return (
       <Draggable draggableId={value} index={index}>
         {(provided, snapshot) => (
-          <div>
+          <Fragment>
             <div
-              className="Tab"
+              onClick={() => console.log(index)}
+              ref={provided.innerRef}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              onClick={this.handleOnClick(provided)}
+            >
+              <div className={`Atlassian-Tab ${className}`}>
+                <span>{value}</span>
+              </div>
+            </div>
+            {provided.placeholder}
+          </Fragment>
+        )}
+      </Draggable>
+    );
+  }
+}
+/*
+      <Draggable draggableId={value} index={index}>
+        {(provided, snapshot) => (
+          <Fragment>
+            <div
+              onClick={() => console.log(index)}
+              className="Atlassian-Tab"
               ref={provided.innerRef}
               {...provided.draggableProps}
               {...provided.dragHandleProps}
@@ -17,11 +55,8 @@ class Tab extends React.Component {
               {value}
             </div>
             {provided.placeholder}
-          </div>
+          </Fragment>
         )}
       </Draggable>
-    );
-  }
-}
-
+*/
 export default Tab;

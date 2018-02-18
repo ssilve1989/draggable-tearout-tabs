@@ -39,9 +39,15 @@ class App extends React.Component {
           <h1 className="App-title">Welcome to React in OpenFin</h1>
         </header>
         <div>
-          <button onClick={navigate('/')}>Home</button>
-          <button onClick={navigate('/tabs')}>Tabs</button>
-          <button onClick={navigate('/atlassian')}>Atlassian</button>
+          <button className="btn btn-default" onClick={navigate('/')}>
+            Home
+          </button>
+          <button className="btn btn-default" onClick={navigate('/tabs')}>
+            Tabs
+          </button>
+          <button className="btn btn-default" onClick={navigate('/atlassian')}>
+            Atlassian
+          </button>
         </div>
         <Routes />
       </div>

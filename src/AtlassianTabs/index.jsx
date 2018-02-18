@@ -15,6 +15,7 @@ class SortableTabs extends React.Component {
         },
         {
           value: 'Tab 2',
+          active: true,
         },
         {
           value: 'Tab 3',
